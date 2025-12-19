@@ -1,257 +1,249 @@
-# Sentinel - Microservice Health Monitor
 
-A comprehensive MERN stack application for monitoring microservice health, reliability, and performance.
+---
 
-## Project Structure
+#  Sentinel — Microservice Health Monitor
+
+**Sentinel** is a powerful **MERN stack** microservice health monitoring platform designed to help engineering teams **ensure reliability, uptime, performance, and rapid alerting** across distributed systems.
+
+It is currently **under active development**, but already includes core capabilities such as service health checks, alert integrations, SLA insights, and Prometheus-compatible metrics.
+
+---
+
+##  Demo & Links
+
+*  **GitHub Repository:** [https://github.com/ShivasaiCEng/Sentinel-MicroserviceHealthMonitor](https://github.com/ShivasaiCEng/Sentinel-MicroserviceHealthMonitor)
+*  *(Planned)* **Live Demo / Deployment:** *Coming Soon*
+*  *(Optional Demo Video)*: *Coming Soon*
+
+> This project is in development and evolving rapidly.
+
+---
+
+##  What Sentinel Solves
+
+Modern microservice architectures require robust monitoring to:
+
+* Detect service outages & performance degradation
+* Calculate uptime, latency, error rates, and reliability scores
+* Alert teams instantly through multiple channels
+* Provide historical insights and visualizations
+
+Sentinel helps engineering teams visualize and automate this process, reducing downtime and debugging effort across services.
+
+---
+
+##  Key Features *(currently working to make these work)*
+
+ **Real-time Health Monitoring** — Scheduled health checks (e.g., every 10s)
+ **Incident Detection & Tracking**
+ **Multi-channel Alerting**
+
+* Slack, Telegram, Email, WhatsApp support
+   **WebSocket Live Updates** — UI updates in real time
+   **Service Registration & Management**
+   **Historical Health Data Visualization**
+   **SLA/SLO Reliability Scoring**
+   **Prometheus-Compatible Metrics Endpoint**
+   **Service Metrics (latency, availability, CPU/memory)**
+
+*(These features reflect the current implementation state in the repo.)* ([GitHub][1])
+
+---
+
+##  Project Structure
 
 ```
-.
-├── backend/          # Node.js + Express backend
-│   ├── config/      # Database configuration
-│   ├── models/      # MongoDB models
-│   ├── routes/      # API routes
-│   ├── services/    # Business logic
-│   ├── middleware/  # Auth, rate limiting
-│   ├── cron/        # Scheduled tasks
-│   └── server.js    # Entry point
-├── frontend/        # React frontend
-│   ├── src/         # Source files
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── services/
+Sentinel-MicroserviceHealthMonitor/
+├── backend/                # Node.js + Express backend
+│   ├── config/             # Configuration & environment setup
+│   ├── models/             # MongoDB/Mongoose schemas
+│   ├── routes/             # API endpoints
+│   ├── services/           # Business logic & health checks
+│   ├── middleware/         # Auth, rate limiting, error handlers
+│   ├── cron/               # Scheduled health check jobs
+│   └── server.js           # Backend entry point
+│
+├── frontend/               # React frontend
+│   ├── src/
+│   │   ├── components/     # UI components
+│   │   ├── pages/          # App screens
+│   │   └── services/       # API calls + WebSockets
 │   └── package.json
-└── README.md
+│
+├── FEATURES.md             # Feature breakdown
+├── QUICKSTART.md           # Setup quickstart guide
+├── .gitignore
+├── metadata.json
+├── package.json
+└── README.md               # This file
 ```
 
-## Features
+*(This structure reflects current repository folders.)* ([GitHub][1])
 
-- ✅ Real-time health monitoring (every 10 seconds)
-- ✅ Incident detection and tracking
-- ✅ Multi-channel alerting (Slack, Telegram, Email, WhatsApp)
-- ✅ Prometheus-compatible metrics endpoint
-- ✅ SLA/SLO reliability scoring
-- ✅ WebSocket live updates
-- ✅ Service registration and management
-- ✅ Historical health data visualization
+---
 
-## Tech Stack
+##  Tech Stack
 
-### Backend
-- Node.js + Express
-- MongoDB + Mongoose
-- Socket.IO (WebSocket)
-- Node-cron (scheduled tasks)
-- Axios (HTTP client)
+**Frontend**
 
-### Frontend
-- React 18
-- React Router
-- Socket.IO Client
-- Recharts (data visualization)
-- TailwindCSS
+* React 18
+* React Router
+* Socket.IO Client (live updates)
+* Recharts (visual charts)
+* TailwindCSS
 
-## Prerequisites
+**Backend**
 
-- Node.js 18+
-- MongoDB (local or cloud)
-- npm or yarn
+* Node.js + Express
+* MongoDB + Mongoose
+* Socket.IO (WebSockets)
+* Node-cron (scheduled checks)
+* Axios (HTTP client)
+* Prometheus-compatible metrics endpoint
 
-## Installation
+*(Based on repo structure and common MERN patterns.)* ([GitHub][1])
+
+---
+
+##  Prerequisites
+
+Make sure you have:
+
+* **Node.js** (v18+)
+* **npm** or **yarn**
+* **MongoDB** (local or cloud)
+
+*(Required for local development.)* ([GitHub][1])
+
+---
+
+## 🛠️ Installation & Setup
 
 ### Backend Setup
 
-1. Navigate to backend directory:
 ```bash
 cd backend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create `.env` file:
-```bash
-cp .env.example .env
-```
+Create a `.env` file based on example or your own settings:
 
-4. Create `.env` file and configure environment variables:
 ```env
 PORT=5000
-MONGODB_URI=mongodb+srv://isha4shiva_db_user:KFWa7AceeiwND8VA@cluster0.nypeof3.mongodb.net/sentinel?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=your-secret-key-change-in-production
+MONGODB_URI=your_mongo_connection_string
+JWT_SECRET=your_jwt_secret
 NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
-
-# Alert Integrations (optional)
+# Optional alert configs:
 SLACK_WEBHOOK_URL=
 TELEGRAM_BOT_TOKEN=
-TELEGRAM_CHAT_ID=
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
+EMAIL_HOST=
+EMAIL_PORT=
 EMAIL_USER=
 EMAIL_PASS=
-WHATSAPP_PHONE_NUMBER_ID=
 WHATSAPP_ACCESS_TOKEN=
 ```
 
-**Note:** Your MongoDB Atlas connection string is already configured. See `backend/ENV_SETUP.md` for details.
+Start backend server:
 
-5. Start MongoDB (if running locally):
-```bash
-mongod
-```
-
-6. Start the backend server:
 ```bash
 npm run dev
 ```
 
-The backend will run on `http://localhost:5000`
+---
 
 ### Frontend Setup
 
-1. Navigate to frontend directory:
 ```bash
 cd frontend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create `.env` file (optional, defaults to localhost:5000):
+Create `.env` file:
+
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
 
-4. Start the development server:
+Run frontend in development:
+
 ```bash
 npm run dev
 ```
 
-The frontend will run on `http://localhost:5173`
+---
 
-## Using the NPM Package
+##  API Endpoints
 
-The project uses the `microservice-health-endpoint` package. To add health monitoring to your microservices:
-
-```javascript
-const express = require('express');
-const health = require('microservice-health-endpoint');
-
-const app = express();
-
-// Add health endpoints
-app.use(health({ serviceName: 'my-service' }));
-
-// Your routes...
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello World' });
-});
-
-app.listen(3001, () => {
-  console.log('Server running on port 3001');
-});
-```
-
-This automatically adds:
-- `GET /health` - Health check endpoint
-- `GET /metrics` - Prometheus-compatible metrics
-
-## API Endpoints
+*(Examples based on current design — update as implemented.)* ([GitHub][1])
 
 ### Services
-- `GET /api/services` - Get all services
-- `GET /api/services/:id` - Get single service
-- `POST /api/services` - Create service
-- `PUT /api/services/:id` - Update service
-- `DELETE /api/services/:id` - Delete service
 
-### Health
-- `GET /api/health/latest` - Get latest health for all services
-- `GET /api/health/:serviceId/history` - Get health history
+```
+GET /api/services
+GET /api/services/:id
+POST /api/services
+PUT /api/services/:id
+DELETE /api/services/:id
+```
 
-### Incidents
-- `GET /api/incidents` - Get all incidents
-- `PATCH /api/incidents/:id/close` - Close incident
+### Health & Metrics
+
+```
+GET /api/health/latest
+GET /api/health/:serviceId/history
+GET /metrics   # Prometheus export
+```
 
 ### Alerts
-- `GET /api/alerts` - Get alert logs
-- `POST /api/alerts/test` - Send test alert
 
-### Reliability
-- `GET /api/reliability` - Get all reliability scores
-- `GET /api/reliability/:serviceId` - Get service reliability
-- `POST /api/reliability/recalculate` - Recalculate scores
-
-### Metrics
-- `GET /metrics` - Prometheus-compatible metrics export
-
-## Development
-
-### Backend Development
-```bash
-cd backend
-npm run dev  # Auto-restart on file changes
+```
+POST /api/alerts/test  # Send test alert
 ```
 
-### Frontend Development
-```bash
-cd frontend
-npm run dev  # Vite dev server with HMR
-```
+---
 
-## Production Build
+##  Monitoring & Reliability
 
-### Frontend
-```bash
-cd frontend
-npm run build
-npm run preview
-```
+Sentinel calculates:
 
-### Backend
-```bash
-cd backend
-npm start
-```
+* **Service availability**
+* **Latency percentiles (P50, P95, P99)**
+* **Error rates**
+* **SLO compliance**
+* **Reliability scoring**
 
-## Features in Detail
+This helps teams catch performance regressions early.
 
-### Health Checks
-- Runs every 10 seconds via cron job
-- Checks `/health` endpoint on all active services
-- Measures latency, CPU, memory
-- Detects incidents automatically
+---
 
-### Incident Detection
-- Service down detection
-- High latency warnings (>1000ms)
-- Automatic incident creation and resolution
+##  Roadmap (Planned)
 
-### Alerting
-- Slack webhook integration
-- Telegram bot integration
-- Email via SMTP (Nodemailer)
-- WhatsApp via Meta Cloud API
-- Alert throttling (5 minutes per service)
+✨ Add role-based access & auth UI
+✨ Dashboard graphs & drill-downs
+✨ Kubernetes health integrations
+✨ AI assisted anomaly detection
+✨ Export reports & CSV/PDF
+✨ Marketplace integrations (PagerDuty, Opsgenie, Teams)
 
-### Reliability Scoring
-- Calculates uptime percentage
-- P50, P95, P99 latency percentiles
-- Error rate calculation
-- SLO target comparison
-- Runs hourly via cron
+---
 
-### Prometheus Metrics
-- `service_up` - Service availability gauge
-- `service_latency_ms` - Latency gauge
-- `service_errors` - Error counter
-- `service_cpu_usage` - CPU usage gauge
-- `service_memory_mb` - Memory usage gauge
+##  Contributing
 
-## License
+This project is open for collaboration.
 
-MIT
+To contribute:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit & push
+4. Open a pull request
+
+
+
+##  Stay Updated
+
+Follow the project for updates, demos, and deployment links.
+Your feedback and contributions are welcome!
+
+---
+
