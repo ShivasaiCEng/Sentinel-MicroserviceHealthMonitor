@@ -12,8 +12,7 @@ It is currently **under active development**, but already includes core capabili
 ##  Demo & Links
 
 *  **GitHub Repository:** [https://github.com/ShivasaiCEng/Sentinel-MicroserviceHealthMonitor](https://github.com/ShivasaiCEng/Sentinel-MicroserviceHealthMonitor)
-*  *(Planned)* **Live Demo / Deployment:** *Coming Soon*
-*  *(Optional Demo Video)*: *Coming Soon*
+*  **Demo(not every feature is working still in building phase):** https://youtu.be/4BnUO-ew9Lk
 
 > This project is in development and evolving rapidly.
 
